@@ -1,0 +1,42 @@
+<div class="container">
+  <h3>Trades:</h3>
+  <div class="row row justify-content-center pb-2">
+    <div class="col-4">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Seleccione un lapso de tiempo</label>
+        <select class="custom-select form-control" (change)="getTrades($event)">
+          <option value="" selected>...</option>
+          <option value="24">24 Hrs.</option>
+          <option value="12">12 Hrs.</option>
+          <option value="6">6 Hrs.</option>
+          <option value="1">1 Hr.</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="scroll col-12 shadow bg-white rounded">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">TradeId</th>
+            <th scope="col">Amount (BTC)</th>
+            <th scope="col">Rate (MXN)</th>
+            <th scope="col">Value in MXN</th>
+            <th scope="col">Created at</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trade of trades">
+            <td>{{ trade.tid }}</td>
+            <td>{{ trade.amount }}</td>
+            <td>{{ trade.rate }}</td>
+            <td>{{ trade.value }}</td>
+            <td>{{ now(trade.created_at) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</div>
